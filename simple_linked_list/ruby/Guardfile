@@ -1,0 +1,7 @@
+# require is always preferable to require_relative imo
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'test'))
+
+guard 'minitest' do
+  # https://rubular.com/r/NO7yN7eSlIRwvg
+  watch(%r{(test/)?(.+?)(_test)?\.rb}) { |m| "test/#{m[2]}_test.rb" }
+end
